@@ -1,4 +1,4 @@
-package com.nutrix.command.application.dtos;
+package com.nutrix.command.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
