@@ -1,6 +1,6 @@
 package com.nutrix.command.api;
 
-import com.nutrix.command.application.dtos.Recipe;
+import com.nutrix.command.dtos.Recipe;
 import com.nutrix.command.application.services.DietCommandService;
 import com.nutrix.command.domain.Diet;
 import com.nutrix.command.domain.DietRecipes;
@@ -17,8 +17,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -59,9 +57,11 @@ public class DietCommandController {
             Optional<Diet> dietOptional = dietService.getById(id);
             if(!dietOptional.isPresent())
                 return new ResponseEntity<Diet>(HttpStatus.NOT_FOUND);
-            diet.setId(id);
-            dietService.save(diet);
-            return new ResponseEntity<Diet>(diet,HttpStatus.OK);
+            else {
+                diet.setId(id);
+                dietService.save(diet);
+                return new ResponseEntity<Diet>(diet,HttpStatus.OK);
+            }
         }catch (Exception e){
             return new ResponseEntity<Diet>(HttpStatus.INTERNAL_SERVER_ERROR);
         }

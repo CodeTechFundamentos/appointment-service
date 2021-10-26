@@ -1,6 +1,6 @@
 package com.nutrix.query.api;
 
-import com.nutrix.command.application.dtos.Recipe;
+import com.nutrix.command.dtos.Recipe;
 import com.nutrix.command.domain.Diet;
 import com.nutrix.command.infra.IDietRecipesRepository;
 import com.nutrix.query.application.services.DietQueryService;
